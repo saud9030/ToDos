@@ -22,15 +22,21 @@ class App extends Component {
   addToList = (event) =>{
     //to prevent the page from reloading once the user uses the button
     event.preventDefault();
-    //to push the new item to the array of list
-    this.state.list.push(this.state.item)
-    //to reset the value of item(key), so once the user submit the item it will disapear from the page
-    this.setState({
-        item: ""
-    })
+    // this if condition is to make sure that the user will not be giving us only a whitespace
+    if(this.state.item.trim() === ''){
+      alert("you need to write something")
+    }else{
+       //to push the new item to the array of list
+       this.state.list.push(this.state.item)
+       //to reset the value of item(key), so once the user submit the item it will disapear from the page
+       this.setState({
+           item: ""
+       })
+    }
+    
   }
   //this function is used by the List.js component to delete/remove any item on the list from the page and from the list array
-  toRemove = (event) => {
+  toRemoveList = (event) => {
     //this var is to select the wanted element by its content and to find its index on on the list(key) array
     let removedItem = this.state.list.indexOf(event.target.textContent);
     //using .splice method to remove the item from the array
@@ -38,40 +44,86 @@ class App extends Component {
     //using this method to force the render methor to render again so the removed item will disapear from the page
     this.forceUpdate();
   }
+  toRemoveDone = (event) => {
+    //this var is to select the wanted element by its content and to find its index on on the list(key) array
+    let removedItem = this.state.done.indexOf(event.target.textContent);
+    //using .splice method to remove the item from the array
+    this.state.done.splice(removedItem,1)
+    //using this method to force the render methor to render again so the removed item will disapear from the page
+    this.forceUpdate();
+  }
+  //this function enables the user to be done with a task 
   doneItem = (event) =>{
+    // to select the done item
     let doneItem = event.target.value;
-    console.log(doneItem)
+    // to add the item to the done(key) array
     this.state.done.push(doneItem);
-    console.log(this.state.done)
+    // to delete the done item for list(key) array
     this.state.list.splice(this.state.list.indexOf(doneItem),1)
+    // to call render() again
     this.forceUpdate();
   }
+  // this function enables the user to undone a task, and to have it back on the tasks list
   unDoneItem = (event) =>{
+    // to select the item
     let unDoneItem = event.target.value;
+    // to update the list(key) array to add the undone item
     this.state.list.push(unDoneItem);
+    // to update the done(key) array to remove the undone item
     this.state.done.splice(this.state.done.indexOf(unDoneItem),1)
-    console.log(this.state.done)
+    // to call render again so the items on the page will appear correctly
     this.forceUpdate();
   }
+  //this function enables the user to remove all the tasks
+  removeAll = (event) =>{
+    //to prevent the button from refreshing the page
+    event.preventDefault();
+    // to reset all values to empty in order to clear all tasks
+    this.setState({
+      list: [],
+      done:[]
+    })
+    //to render again so it shows no tasks
+    this.forceUpdate();
+  }
+  //this function enables the user to remove the tasks that was already done with
+  removeDone = (event) =>{
+    //to prevent the button from refershing again
+    event.preventDefault();
+    //to reset the doneTasks array to empty in order to remove doneTasks
+    this.setState({
+      done:[]
+    })
+    //to render again so the page won't show any doneTasks anymore
+    this.forceUpdate();
+  }
+  // editTasks = (event) =>{
+  //   let itemToEdit = this.state.list.indexOf(event.target.textContent);
+  // }
   render() {
     // the var to pass all the lists' item to the List component and to pass the function toRemove so it can be used.
-    let listItems = this.state.list.map((item) => <List item={item} toRemove={this.toRemove} doneItem={this.doneItem}/>)
-    let doneItems = this.state.done.map((item) => <Done item={item} unDoneItem={this.unDoneItem}/>)
+    let listItems = this.state.list.map((item) => <List item={item} toRemove={this.toRemoveList} doneItem={this.doneItem}/>)
+    let doneItems = this.state.done.map((item) => <Done item={item} toRemove={this.toRemoveDone} unDoneItem={this.unDoneItem}/>)
     return (
       <div>
-        <h1>To Do List</h1>
+        <h1 >To Do List </h1>
         <form onSubmit={this.addToList}>
           <input type="text" name="item" onChange={this.addItem} value={this.state.item}></input>
-          <button type="submit">Add</button>
+          <button type="submit" className="addPress">Add</button>
+          
         </form>
+        <div className="editing">
+            <button onClick={this.removeDone}>remove completed tasks</button>
+            <button onClick={this.removeAll}>delete All tasks</button>
+        </div>
         <div className="container">
           <div className="row">
-            <div className="col">
-              <h2>To Do</h2>
+            <div className="col tasks">
+              <h2>Tasks</h2>
               {listItems}
             </div>
-            <div className="col">
-              <h2>Done</h2>
+            <div className="col done">
+              <h2>Completed</h2>
               {doneItems}
             </div>
           </div>

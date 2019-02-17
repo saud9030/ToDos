@@ -7,9 +7,9 @@ class List extends Component {
     return (
       <div>
           <ul>
-              <li >{this.props.item}</li>
-              <button value={this.props.item} onClick={this.props.doneItem}>Done</button>
-              <button value={this.props.item} onClick={this.props.toRemove}>Remove</button>
+                <li >{this.props.item}</li>
+                <button value={this.props.item} onClick={this.props.doneItem} className="btn-circle">✓</button>
+                <button value={this.props.item} onClick={this.props.toRemove} className="btn-circle">X</button>
           </ul>
       </div>
     );
