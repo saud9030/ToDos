@@ -33,7 +33,6 @@ class App extends Component {
            item: ""
        })
     }
-    
   }
   //this function is used by the List.js component to delete/remove any item on the list from the page and from the list array
   toRemoveList = (event) => {
@@ -44,6 +43,7 @@ class App extends Component {
     //using this method to force the render methor to render again so the removed item will disapear from the page
     this.forceUpdate();
   }
+  //this function is used by Done.js component to delete/remove any completed tasks from the done(key) array
   toRemoveDone = (event) => {
     //this var is to select the wanted element by its content and to find its index on on the list(key) array
     let removedItem = this.state.done.indexOf(event.target.textContent);
@@ -98,11 +98,14 @@ class App extends Component {
     this.forceUpdate();
   }
   // editTasks = (event) =>{
-  //   let itemToEdit = this.state.list.indexOf(event.target.textContent);
+  //   // this.addItem(event);
+  //   let itemUpdate = this.state.list.indexOf(event.targe);
+  //   console.log(itemUpdate)
+  //   // this.state.list[itemUpdate] = this.state.item;
   // }
   render() {
     // the var to pass all the lists' item to the List component and to pass the function toRemove so it can be used.
-    let listItems = this.state.list.map((item) => <List item={item} toRemove={this.toRemoveList} doneItem={this.doneItem}/>)
+    let listItems = this.state.list.map((item) => <List item={item} toRemove={this.toRemoveList} doneItem={this.doneItem} editTasks={this.editTasks}/>)
     let doneItems = this.state.done.map((item) => <Done item={item} toRemove={this.toRemoveDone} unDoneItem={this.unDoneItem}/>)
     return (
       <div>
@@ -113,8 +116,8 @@ class App extends Component {
           
         </form>
         <div className="editing">
-            <button onClick={this.removeDone}>remove completed tasks</button>
-            <button onClick={this.removeAll}>delete All tasks</button>
+            <button onClick={this.removeDone} className="editButtons">remove completed tasks</button>
+            <button onClick={this.removeAll} className="editButtons">delete All tasks</button>
         </div>
         <div className="container">
           <div className="row">
@@ -122,13 +125,15 @@ class App extends Component {
               <h2>Tasks</h2>
               {listItems}
             </div>
+            <div className="col" id="timeTable">
+              <h2> Time</h2>
+            </div>
             <div className="col done">
               <h2>Completed</h2>
               {doneItems}
             </div>
           </div>
         </div>
-        
       </div>
     );
   }
