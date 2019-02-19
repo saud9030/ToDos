@@ -26,7 +26,6 @@ class List extends Component {
                 <button value={this.props.item} onClick={this.props.doneItem} className="btn-circle">✓</button>
                 <button value={this.props.item} onClick={this.props.toRemove} className="btn-circle">X</button>
           </ul>
-         
       </div>
     );
   }
