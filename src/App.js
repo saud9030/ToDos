@@ -162,9 +162,9 @@ class App extends Component {
         <footer >
             <span> created by Saud Almutairi  </span>
             <div>
-                <a href="https://twitter.com/saud95t"><img className="contactMe"src={twitter}/></a>
-                <a href="https://github.com/saud9030"><img className="contactMe" src={github}/></a>
-                <a href="https://www.linkedin.com/in/saud-almutairi-74a19b152/"><img className="contactMe" src={linkedin}/></a>
+                <a href="https://twitter.com/saud95t"><img className="contactMe"src={twitter} alt="myTwitterPage"/></a>
+                <a href="https://github.com/saud9030"><img className="contactMe" src={github} alt="myGithubPage"/></a>
+                <a href="https://www.linkedin.com/in/saud-almutairi-74a19b152/"><img className="contactMe" src={linkedin} alt="myLinkedinPage" /></a>
             </div>
             
             
