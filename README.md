@@ -1,10 +1,9 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## ToDoList Project
 
-In the project directory, you can run:
+This website will enable the user to create a list of todos in which the user will be able to add,complete, and remove a task.
 
-### `npm start`
+### `features (how to use the website)`
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
