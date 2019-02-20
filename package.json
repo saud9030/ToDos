@@ -4,7 +4,6 @@
   "private": true,
   "homepage": "https://saud9030.github.io/ToDoList/",
   "dependencies": {
-    "gh-pages": "^2.0.1",
     "moment": "^2.24.0",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
@@ -12,6 +11,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -25,5 +25,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
+  }
 }

@@ -166,8 +166,6 @@ class App extends Component {
                 <a href="https://github.com/saud9030"><img className="contactMe" src={github} alt="myGithubPage"/></a>
                 <a href="https://www.linkedin.com/in/saud-almutairi-74a19b152/"><img className="contactMe" src={linkedin} alt="myLinkedinPage" /></a>
             </div>
-            
-            
         </footer>
       </div>
     );
