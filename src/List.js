@@ -22,10 +22,11 @@ class List extends Component {
       <div>
           <ul>
                 <li >{this.props.item}</li>
-                <p contentEditable="true" onClick={this.emptyNotes}> click here to write notes</p>
+                {/* <p contentEditable="true" onClick={this.emptyNotes}> click here to write notes</p> */}
                 <button value={this.props.item} onClick={this.props.doneItem} className="btn-circle">✓</button>
                 <button value={this.props.item} onClick={this.props.toRemove} className="btn-circle">X</button>
           </ul>
+         
       </div>
     );
   }
