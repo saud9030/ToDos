@@ -7,16 +7,16 @@ class List extends Component {
     }
     //this function clear the default text of <p> that is editable , 
     //and only do it once, so if the user wrote notes and they want to edited some more, it won't clear what they already wrote
-    emptyNotes = (event) =>{
-        if(this.state.ableToEdit === false){
-            event.target.textContent ='';
-            this.setState({
-                ableToEdit : true,
-            })
-        }
+    // emptyNotes = (event) =>{
+    //     if(this.state.ableToEdit === false){
+    //         event.target.textContent ='';
+    //         this.setState({
+    //             ableToEdit : true,
+    //         })
+    //     }
         
        
-    }
+    // }
   render() {
     return (
       <div>
@@ -33,6 +33,3 @@ class List extends Component {
 }
 
 export default List;
-
-// to u
-// onClick={()=>this.props.doneItem}

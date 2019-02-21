@@ -6,7 +6,6 @@ import ReactDOM from 'react-dom'
 import twitter from './twitter.svg';
 import github from './github.svg';
 import linkedin from './linkedin.svg';
-
 var moment = require('moment');
 
 class App extends Component {
