@@ -2,7 +2,7 @@
   "name": "to_do_list",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://saud9030.github.io/ToDoList/",
+  "homepage": "https://saud9030.github.io/ToDos/",
   "dependencies": {
     "moment": "^2.24.0",
     "react": "^16.8.2",

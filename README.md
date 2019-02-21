@@ -4,13 +4,21 @@
 This website will enable the user to create a list of todos in which the user will be able to add,complete, and remove a task.
 
 ### `features (how to use the website)`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
+* Adding new Tasks
+by writing in the input box and pressing on the `add` button, or by pressing enter the user will be able to add new tasks<br>
+* Making a task completed
+by pressing on the `✓` button the user will be making the task completed in which it will move to the completed task column<br>
+* Deleting a specific Task
+by pressing on the `X` button beneath the specific task the user will be deleting/removing from either columns(Tasks/Completed)<br>
+* Making a task incomplete
+by pressing on the `↵` button in the completed tasks coloumn the user will make the task incomplete and return the task to the tasks column<br>
+* Deleting all tasks
+by pressing on the `delete all tasks` button the user will delete/remove all tasks from both columns(Tasks/Completed)<br>
+* Deleting completed tasks
+by pressing on the `remove completed tasks` button the user will delete/remove all completed tasks<br>
+* Time
+to show the user the current time "moving by the second" <br>
+<!-- 
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.<br>
@@ -64,4 +72,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 ### `npm run build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify -->
